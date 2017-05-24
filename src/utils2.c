@@ -2832,11 +2832,7 @@ size_t   pathlen;
 
     memset(result, 0, nbytes);
     dir = pathJoin("/tmp", subdir);
-#ifndef _WIN32
-    path = stringNew(dir);
-#else
     path = genPathname(dir, NULL);
-#endif  /*  ~ _WIN32 */
     pathlen = strlen(path);
     if (pathlen < nbytes - 1) {
         strncpy(result, path, pathlen);
